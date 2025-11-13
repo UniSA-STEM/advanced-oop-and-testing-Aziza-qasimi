@@ -1,13 +1,14 @@
 """
-File: filename.py
-Description: A brief description of this Python module.
-Author: Billy Bizilis
-ID: 110100110
-Username: bizvy001
+File: animal.py
+Description: Base class and subclasses for animals in the zoo with health tracking.
+Author: Aziza Qasimi
+ID: 110462000
 This is my own work as defined by the University's Academic Integrity Policy.
 """
+
 from abc import ABC, abstractmethod
 from typing import List
+from health_record import HealthRecord
 
 class Animal(ABC):
     """Base class for all animals."""
@@ -23,7 +24,7 @@ class Animal(ABC):
         self._species = species
         self._age = age
         self._diet = diet
-        self._health_records = []
+        self._health_records: List[HealthRecord] = []
 
     @abstractmethod
     def make_sound(self):
@@ -38,9 +39,19 @@ class Animal(ABC):
     def sleep(self):
         print(f"{self._name} is sleeping peacefully.")
 
-    def add_health_record(self, record):
+    # --- Health Record Methods ---
+    def add_health_record(self, record: HealthRecord):
+        """Attach a health record to this animal."""
         self._health_records.append(record)
-        print(f"Added health record for {self._name}.")
+        print(f"Health record added for {self._name}: {record.description}")
+
+    def list_health_records(self):
+        """Return all health records for reporting."""
+        return [r.summary() for r in self._health_records]
+
+    def active_health_issues(self):
+        """Return only open/active health records."""
+        return [r.summary() for r in self._health_records if r.is_open]
 
 # Subclasses
 class Mammal(Animal):

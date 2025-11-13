@@ -1,11 +1,11 @@
 """
-File: filename.py
-Description: A brief description of this Python module.
-Author: Billy Bizilis
-ID: 110100110
-Username: bizvy001
+File: enclosure.py
+Description: Class for zoo enclosures.
+Author: Aziza Qasimi
+ID: 110462000
 This is my own work as defined by the University's Academic Integrity Policy.
 """
+
 from animal import Animal
 
 class Enclosure:
@@ -15,7 +15,7 @@ class Enclosure:
         self._name = name
         self._environment = environment
         self._allowed_type = allowed_type.lower()
-        self._animals = []
+        self._animals: list[Animal] = []
         self._cleanliness = 100  # 100 = perfectly clean
 
     def add_animal(self, animal: Animal):

@@ -2,8 +2,7 @@
 File: health_record.py
 Description: Class to manage animal health records.
 Author: Aziza Qasimi
-ID: <YourID>
-Username: <YourUsername>
+ID: 110462000
 This is my own work as defined by the University's Academic Integrity Policy.
 """
 
